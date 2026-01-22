@@ -161,7 +161,7 @@ footer {
         width: 100%;
         text-align: center;
         display: none;
-        padding: 20px 0;
+        
     }
 
     nav ul.show {
@@ -176,5 +176,6 @@ footer {
         display: block;
     }
 }
+
 
 
