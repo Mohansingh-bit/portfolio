@@ -51,7 +51,12 @@ nav a :hover {
         color: #38bdf8;
 
 }
-
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #e5e7eb;
+}
 /* VIDEO SECTIONS */
 .video-section {
     position: relative;
@@ -138,3 +143,33 @@ footer {
 .hero video.ready {
     opacity: 1;
 }
+@media (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(2,6,23,0.98);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        display: none;
+        padding: 20px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 12px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
