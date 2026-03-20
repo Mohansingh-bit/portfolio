@@ -1,0 +1,93 @@
+/* ══════════════════════════════════════════
+   MOHAN SINGH — about.css
+   ══════════════════════════════════════════ */
+
+.about {
+  display:grid; grid-template-columns:1fr 1.35fr;
+  gap:80px; padding:110px 56px;
+  border-top:1px solid var(--border); align-items:start;
+}
+.about-left { display:flex; flex-direction:column; gap:30px; }
+
+/* Avatar */
+.avatar-wrap, .av-wrap {
+  position:relative; width:230px; height:270px; margin-bottom:34px;
+}
+.avatar-placeholder, .av-ph {
+  width:100%; height:100%; background:var(--surf);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+}
+.av-ph p {
+  font-family:var(--mono); font-size:.58rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--muted);
+}
+.avatar-ring, .av-ring {
+  position:absolute; inset:-10px;
+  border:1px solid rgba(0,229,176,.28);
+  animation:rpulse 3s ease-in-out infinite;
+}
+.avatar-ring--2, .av-ring2 {
+  inset:-22px; border-color:rgba(0,229,176,.12); animation-delay:.9s;
+}
+
+/* Code card */
+.code-card, .cc {
+  background:#0a1520; border:1px solid var(--border); border-left:2px solid var(--accent);
+}
+.code-header, .cc-hd {
+  display:flex; align-items:center; gap:6px;
+  padding:9px 14px; border-bottom:1px solid var(--border); background:#071018;
+}
+.dot { width:10px; height:10px; border-radius:50%; }
+.dot.r, .dr { background:#ff5f57; }
+.dot.y, .dy { background:#febc2e; }
+.dot.g, .dg { background:#28c840; }
+.code-filename, .cc-fn {
+  margin-left:8px; font-family:var(--mono); font-size:.62rem;
+  letter-spacing:.12em; color:var(--muted);
+}
+.code-body, .cc-body {
+  padding:18px; font-family:var(--mono); font-size:.73rem;
+  line-height:2; white-space:pre;
+}
+.ct, .ck { color:#569cd6; }
+.cn, .ccl { color:#4ec9b0; }
+.cs { color:#ce9178; }
+.cb { color:#dcdcaa; }
+
+/* About text */
+.about-right { position:relative; z-index:1; }
+.about-name { font-family:var(--display); font-size:clamp(2.5rem,4vw,4rem); line-height:.95; margin:12px 0 6px; }
+.about-role-tag {
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.2em;
+  color:var(--muted); text-transform:uppercase; margin-bottom:24px;
+}
+.about-bio { font-size:.95rem; color:#999; line-height:1.85; margin-bottom:14px; }
+
+/* Stats */
+.stats-grid, .stats {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:34px;
+}
+.stat-box, .sb {
+  background:var(--surf); padding:20px 14px;
+  text-align:center; transition:background .3s;
+}
+.stat-box:hover, .sb:hover { background:#0f1e28; }
+.stat-n, .sn {
+  font-family:var(--display); font-size:2.2rem;
+  color:var(--accent); line-height:1; display:block;
+}
+.stat-l, .sl {
+  font-family:var(--mono); font-size:.55rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); margin-top:5px; display:block;
+}
+
+@keyframes rpulse {
+  0%,100%{ opacity:.7; transform:scale(1); }
+  50%{ opacity:.2; transform:scale(1.03); }
+}
+
+@media(max-width:900px) {
+  .about { grid-template-columns:1fr; padding:80px 20px; gap:40px; }
+  .stats-grid, .stats { grid-template-columns:repeat(2,1fr); }
+}

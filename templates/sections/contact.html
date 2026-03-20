@@ -1,0 +1,27 @@
+<!-- ═══ CONTACT ════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-bg-word">HIRE</div>
+
+  <div class="contact-inner reveal">
+    <p class="label">Let's Work Together</p>
+    <h2 class="section-title">Get In<br>Touch<span class="accent-dot">.</span></h2>
+    <p class="contact-sub">
+      Open for full-time roles, freelance projects &amp; collaborations.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:{{ d.email }}" class="contact-email">{{ d.email }}</a>
+      <a href="tel:{{ d.phone }}"   class="contact-phone">{{ d.phone }}</a>
+    </div>
+
+    <div class="contact-socials">
+      {% for s in d.socials %}
+      <a href="{{ s.url }}" class="soc-btn" target="_blank">{{ s.name }}</a>
+      {% endfor %}
+      <a href="{{ url_for('static', filename='MohanRESUME.pdf') }}"
+         download="Mohan_Singh_Resume.pdf"
+         class="soc-btn">⬇ Resume</a>
+    </div>
+  </div>
+
+</section>

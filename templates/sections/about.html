@@ -1,0 +1,49 @@
+<!-- ═══ ABOUT ════════════════════════════════ -->
+<section class="about" id="about">
+
+  <div class="about-left reveal">
+    <div class="avatar-wrap">
+      <div class="avatar-placeholder">
+        <div class="av-ph">
+          <img src="{{ url_for('static', filename='image.jpeg') }}"
+               alt="Mohan Singh"
+               style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        </div>
+      </div>
+      <div class="avatar-ring"></div>
+      <div class="avatar-ring avatar-ring--2"></div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-header">
+        <span class="dot r"></span>
+        <span class="dot y"></span>
+        <span class="dot g"></span>
+        <span class="code-filename">mohan.py</span>
+      </div>
+      <pre class="code-body"><span class="ct">class</span> <span class="cn">Mohan</span>:
+  name   = <span class="cs">"Mohan Singh"</span>
+  degree = <span class="cs">"BCA 2025"</span>
+  city   = <span class="cs">"Ghaziabad"</span>
+  loves  = [<span class="cs">"Python"</span>, <span class="cs">"Flask"</span>]
+  open_to_work = <span class="cb">True</span></pre>
+    </div>
+  </div>
+
+  <div class="about-right reveal">
+    <p class="label">About Me</p>
+    <h2 class="section-title">{{ d.name }}</h2>
+    <p class="about-role-tag">{{ d.title }}</p>
+    <p class="about-bio">{{ d.summary }}</p>
+
+    <div class="stats-grid">
+      {% for s in d.stats %}
+      <div class="stat-box">
+        <span class="stat-n">{{ s.number }}</span>
+        <span class="stat-l">{{ s.label }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</section>

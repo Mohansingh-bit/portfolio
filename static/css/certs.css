@@ -1,0 +1,44 @@
+/* ══════════════════════════════════════════
+   MOHAN SINGH — certs.css
+   ══════════════════════════════════════════ */
+
+.certs { padding:110px 56px; border-top:1px solid var(--border); }
+
+.certs-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:13px; margin-top:58px;
+}
+
+.cert-card, .cert {
+  background:var(--surf); padding:38px 30px;
+  position:relative; overflow:hidden;
+  border-bottom:2px solid var(--cc);
+  transition:transform .4s;
+}
+.cert-card:hover, .cert:hover { transform:translateY(-4px); }
+
+.cert-icon, .cert-ico {
+  font-size:2.1rem; display:block; margin-bottom:18px;
+}
+.cert-title, .cert-t {
+  font-family:var(--display); font-size:1.25rem;
+  letter-spacing:.04em; margin-bottom:11px;
+}
+.cert-desc, .cert-d {
+  font-size:.8rem; color:var(--muted); line-height:1.7;
+}
+
+/* Shine effect */
+.cert-shine {
+  position:absolute; top:0; left:-100%;
+  width:55%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);
+  transition:left .55s ease;
+}
+.cert-card:hover .cert-shine,
+.cert:hover .cert-shine { left:150%; }
+
+@media(max-width:900px) {
+  .certs { padding:80px 20px; }
+  .certs-grid { grid-template-columns:1fr; }
+}

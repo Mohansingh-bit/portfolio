@@ -1,0 +1,88 @@
+/* ══════════════════════════════════════════
+   MOHAN SINGH — projects.css
+   ══════════════════════════════════════════ */
+
+.projects { padding:110px 56px; border-top:1px solid var(--border); }
+
+.section-header {
+  display:flex; justify-content:space-between;
+  align-items:flex-end; margin-bottom:54px;
+}
+.sec-cnt {
+  font-family:var(--display); font-size:5.5rem;
+  color:var(--border); line-height:1;
+}
+
+/* Grid */
+.projects-grid, .pgrid {
+  display:grid; grid-template-columns:repeat(12,1fr); gap:13px;
+}
+
+/* Card sizes */
+.pcard--large,  .pc-lg { grid-column:span 7; min-height:480px; }
+.pcard--medium, .pc-md { grid-column:span 5; min-height:238px; }
+.pcard--wide,   .pc-wd { grid-column:span 8; min-height:275px; }
+.pcard--small,  .pc-sm { grid-column:span 4; min-height:275px; }
+
+/* Card base */
+.pcard, .pc {
+  position:relative; background:var(--surf); overflow:hidden;
+  cursor:none; transition:transform .4s cubic-bezier(.16,1,.3,1);
+}
+.pcard:hover, .pc:hover { transform:translateY(-5px); }
+.pcard-link, .pc a { display:block; height:100%; text-decoration:none; color:inherit; }
+
+/* Card visual canvas */
+.pcard-visual, .pc-vis { position:absolute; inset:0; }
+.pcard-canvas, .pc-canvas {
+  width:100%; height:100%;
+  transition:transform .55s cubic-bezier(.16,1,.3,1);
+}
+.pcard:hover .pcard-canvas,
+.pc:hover .pc-canvas { transform:scale(1.06); }
+
+/* Card content */
+.pcard-content, .pc-body {
+  position:absolute; bottom:0; left:0; right:0; padding:22px;
+  background:linear-gradient(transparent,rgba(4,9,13,.94) 55%);
+  transform:translateY(6px); transition:transform .4s;
+}
+.pcard:hover .pcard-content,
+.pc:hover .pc-body { transform:translateY(0); }
+
+.pcard-top, .pc-top {
+  display:flex; justify-content:space-between; margin-bottom:7px;
+}
+.pcard-cat, .pcard-year, .pc-cat, .pc-yr {
+  font-family:var(--mono); font-size:.57rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--c, var(--accent));
+}
+.pcard-title, .pc-title {
+  font-family:var(--display); font-size:1.75rem; letter-spacing:.04em; line-height:1;
+}
+.pcard-desc, .pc-desc {
+  font-size:.77rem; color:var(--muted); margin-top:6px;
+  line-height:1.5; max-height:0; overflow:hidden; transition:max-height .4s;
+}
+.pcard:hover .pcard-desc,
+.pc:hover .pc-desc { max-height:56px; }
+.pcard-tags, .pc-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }
+
+/* Arrow */
+.pcard-arrow, .pc-arr {
+  position:absolute; top:18px; right:18px;
+  width:32px; height:32px;
+  border:1px solid rgba(255,255,255,.14);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.95rem; color:var(--text);
+  opacity:0; transform:translate(5px,-5px);
+  transition:opacity .3s, transform .3s;
+}
+.pcard:hover .pcard-arrow,
+.pc:hover .pc-arr { opacity:1; transform:translate(0,0); }
+
+@media(max-width:900px) {
+  .projects { padding:80px 20px; }
+  .pcard--large, .pcard--medium, .pcard--wide, .pcard--small,
+  .pc-lg, .pc-md, .pc-wd, .pc-sm { grid-column:span 12; min-height:260px; }
+}

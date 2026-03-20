@@ -1,0 +1,59 @@
+# ── Python ──────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual Environment ──────────────────────
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# ── Flask ────────────────────────────────────
+instance/
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Environment Variables ────────────────────
+.env
+.flaskenv
+*.env
+
+# ── IDE / Editor ─────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ── Logs ─────────────────────────────────────
+*.log
+logs/
+
+# ── Distribution / Packaging ─────────────────
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# ── Testing ──────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── Static files (optional) ──────────────────
+# Uncomment if you don't want to push static files
+# static/
+
+# ── Resume (optional) ────────────────────────
+# Uncomment to keep resume private
+# static/MohanRESUME.pdf

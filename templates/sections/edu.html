@@ -1,0 +1,31 @@
+<!-- ═══ EDUCATION ══════════════════════════════ -->
+<section class="edu" id="edu">
+  <canvas id="eduCanvas"></canvas>
+
+  <div class="section-header reveal">
+    <p class="label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+  </div>
+
+  <div class="edu-timeline">
+    {% for e in d.education %}
+    <div class="edu-item reveal">
+      <div class="edu-dot"></div>
+      <div class="edu-body">
+        <span class="edu-year">{{ e.year }}</span>
+        <h3 class="edu-degree">{{ e.degree }}</h3>
+        {% if e.url %}
+        <a href="{{ e.url }}" target="_blank" class="edu-school">
+          {{ e.school }} ↗
+        </a><br>
+        
+        </a>
+        {% else %}
+        <p class="edu-school">{{ e.school }}</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+</section>

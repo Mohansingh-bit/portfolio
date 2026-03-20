@@ -1,0 +1,40 @@
+<!-- ═══ PROJECTS ══════════════════════════════ -->
+<section class="projects" id="projects">
+
+  <div class="section-header reveal">
+    <div>
+      <p class="label">What I've Built</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <span class="sec-cnt">0{{ d.projects|length }}</span>
+  </div>
+
+  <div class="projects-grid">
+    {% for proj in d.projects %}
+    <article class="pcard pcard--{{ proj.size }} reveal" style="--c:{{ proj.color }}">
+      <a href="/project/{{ proj.id }}" class="pcard-link">
+        <div class="pcard-visual">
+          <canvas class="pcard-canvas"
+                  data-id="{{ proj.id }}"
+                  data-color="{{ proj.color }}"></canvas>
+        </div>
+        <div class="pcard-content">
+          <div class="pcard-top">
+            <span class="pcard-cat">{{ proj.category }}</span>
+            <span class="pcard-year">{{ proj.year }}</span>
+          </div>
+          <h3 class="pcard-title">{{ proj.title }}</h3>
+          <p class="pcard-desc">{{ proj.description[:100] }}…</p>
+          <div class="pcard-tags">
+            {% for t in proj.tech %}
+            <span class="tag">{{ t }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="pcard-arrow">↗</div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+</section>

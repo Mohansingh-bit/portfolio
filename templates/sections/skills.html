@@ -1,0 +1,34 @@
+<!-- ═══ SKILLS ════════════════════════════════ -->
+<section class="skills-sec" id="skills">
+
+  <div class="section-header reveal">
+    <p class="label">Technical Expertise</p>
+    <h2 class="section-title">Skills</h2>
+  </div>
+
+  <div class="skills-layout">
+    <div class="skills-bars reveal">
+      {% for sk in d.skills %}
+      <div class="skill-item" style="--w:{{ sk.level }}%; --c:{{ sk.color }}">
+        <div class="skill-head">
+          <span>{{ sk.icon }} {{ sk.name }}</span>
+          <span class="skill-pct">{{ sk.level }}%</span>
+        </div>
+        <div class="skill-track">
+          <div class="skill-fill"></div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="tech-cloud reveal">
+      <h3 class="cloud-title">Tech Stack</h3>
+      <div class="cloud-tags">
+        {% for t in d.tech_stack %}
+        <span class="cloud-tag">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</section>

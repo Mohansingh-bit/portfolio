@@ -1,0 +1,20 @@
+<!-- ═══ CERTIFICATIONS ════════════════════════ -->
+<section class="certs" id="certs">
+
+  <div class="section-header reveal">
+    <p class="label">Achievements</p>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+
+  <div class="certs-grid">
+    {% for c in d.certifications %}
+    <div class="cert-card reveal" style="--cc:{{ c.color }}">
+      <span class="cert-icon">{{ c.icon }}</span>
+      <h3 class="cert-title">{{ c.title }}</h3>
+      <p class="cert-desc">{{ c.desc }}</p>
+      <div class="cert-shine"></div>
+    </div>
+    {% endfor %}
+  </div>
+
+</section>

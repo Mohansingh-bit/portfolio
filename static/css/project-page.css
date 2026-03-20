@@ -1,0 +1,71 @@
+/* ══════════════════════════════════════════
+   MOHAN SINGH — project-page.css
+   Project detail page only
+   ══════════════════════════════════════════ */
+
+.proj-hero {
+  min-height:60vh; display:flex; align-items:flex-end;
+  padding:120px 60px 60px; position:relative; overflow:hidden;
+}
+.proj-canvas {
+  position:absolute; inset:0; width:100%; height:100%;
+}
+.proj-hero-content { position:relative; z-index:1; }
+.proj-cat {
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.25em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:14px; display:block;
+}
+.proj-h1 {
+  font-family:var(--display);
+  font-size:clamp(3.5rem,9vw,8rem);
+  line-height:.9; letter-spacing:.02em;
+}
+.proj-body {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:70px; padding:70px 60px;
+  border-top:1px solid var(--border);
+}
+.proj-desc { font-size:1rem; color:#999; line-height:1.85; }
+.proj-points {
+  margin-top:28px; list-style:none;
+  display:flex; flex-direction:column; gap:12px;
+}
+.proj-points li {
+  display:flex; gap:12px; align-items:flex-start;
+  font-size:.9rem; color:#bbb;
+}
+.proj-points li::before { content:"→"; color:var(--accent); flex-shrink:0; }
+
+/* Meta box */
+.proj-meta-box {
+  background:var(--surf); padding:36px;
+  border-left:2px solid var(--accent);
+}
+.meta-row {
+  margin-bottom:24px; border-bottom:1px solid var(--border); padding-bottom:20px;
+}
+.meta-row:last-child { border:none; margin:0; padding:0; }
+.meta-lbl {
+  font-family:var(--mono); font-size:.6rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted); margin-bottom:6px;
+}
+.meta-val {
+  font-family:var(--display); font-size:1.4rem; letter-spacing:.04em;
+}
+.meta-tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+
+/* Back button */
+.back {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--muted); text-decoration:none;
+  margin:40px 60px 0; transition:color .3s;
+}
+.back:hover { color:var(--text); }
+
+@media(max-width:900px) {
+  .proj-hero { padding:100px 20px 40px; }
+  .proj-body { grid-template-columns:1fr; padding:40px 20px; gap:40px; }
+  .back { margin:30px 20px 0; }
+}

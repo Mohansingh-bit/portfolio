@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ p.title }} — {{ d.name }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/project-page.css') }}">
+</head>
+<body style="--accent:{{ p.color }}">
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">MS<span class="nav-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:{{ d.email }}" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <!-- BACK BUTTON -->
+  <a href="/" class="back">← Back to Portfolio</a>
+
+  <!-- HERO -->
+  <section class="proj-hero">
+    <canvas class="proj-canvas" id="projCanvas" data-color="{{ p.color }}"></canvas>
+    <div class="proj-hero-content">
+   <span class="proj-cat">{{ p.category }}</span>
+      <h1 class="proj-h1">{{ p.title }}</h1>
+    </div>
+  </section>
+
+  <!-- PROJECT BODY -->
+  <div class="proj-body">
+
+    <!-- Left: Description + Points -->
+    <div>
+      <p class="label" style="margin-bottom:20px">Overview</p>
+      <p class="proj-desc">{{ p.description }}</p>
+      <ul class="proj-points">
+        {% for pt in p.points %}
+        <li>{{ pt }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Right: Meta Box -->
+    <div class="proj-meta-box">
+      <div class="meta-row">
+        <p class="meta-lbl">Category</p>
+        <p class="meta-val">{{ p.category }}</p>
+      </div>
+            <div class="meta-row">
+        <p class="meta-lbl">Tech Stack</p>
+        <div class="meta-tags">
+          {% for t in p.tech %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="meta-row">
+        <p class="meta-lbl">Developer</p>
+        <p class="meta-val">{{ d.name }}</p>
+      </div>
+      <div class="meta-row">
+        <p class="meta-lbl">Location</p>
+        <p class="meta-val" style="font-size:1rem">{{ d.location }}</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">{{ d.name }}</span>
+    <p>© 2025 · Built with Flask + Python</p>
+    <p class="footer-loc">{{ d.location }}</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="{{ url_for('static', filename='js/cursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+
+  <!-- Project canvas animation -->
+  <script>
+    const pc  = document.getElementById('projCanvas');
+    if (pc) {
+      const ctx = pc.getContext('2d');
+      const col = pc.dataset.color;
+
+      function rs() {
+        pc.width  = pc.offsetWidth;
+        pc.height = pc.offsetHeight;
+      }
+      rs();
+      window.addEventListener('resize', rs);
+
+      let t = 0;
+      (function draw() {
+        ctx.clearRect(0, 0, pc.width, pc.height);
+        for (let i = 0; i < 5; i++) {
+          const x = pc.width  / 2 + Math.sin(t * .5 + i * 1.5) * pc.width  * .35;
+          const y = pc.height / 2 + Math.cos(t * .4 + i * 1.1) * pc.height * .35;
+          const r = 100 + i * 40;
+          const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+          g.addColorStop(0, col + '30');
+          g.addColorStop(1, 'transparent');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        t += .007;
+        requestAnimationFrame(draw);
+      })();
+    }
+  </script>
+
+</body>
+</html>

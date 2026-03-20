@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohan Singh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hero.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/certs.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/edu.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-code">
+        <span class="lc lc1">import flask</span>
+        <span class="lc lc2">import pandas</span>
+        <span class="lc lc3">from ml import predict</span>
+        <span class="lc lc4">print("Hello, World!")</span>
+        <span class="lc lc5">app.run() ✓</span>
+      </div>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <p class="loader-name">{{ d.name }}</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">MS<span class="nav-dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certs">Certs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:{{ d.email }}" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  {% block content %}{% endblock %}
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">{{ d.name }}</span>
+    <p>© 2025 · Built with Flask + Python</p>
+    <p class="footer-loc">{{ d.location }}</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="{{ url_for('static', filename='js/cursor.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/loader.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/hero.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/edu.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/scroll.js') }}"></script>
+
+</body>
+</html>
